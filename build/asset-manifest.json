@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7b897a19.css",
+    "main.js": "/static/js/main.e0428d24.js",
+    "static/media/focusImage_5.png": "/static/media/focusImage_5.3612293fdc082ca5b09c.png",
+    "static/media/focusImage_1.png": "/static/media/focusImage_1.1857a8fb1f3046ae6a68.png",
+    "static/media/focusImage_8.png": "/static/media/focusImage_8.7a70ea4cf08d10fee760.png",
+    "static/media/backImage_1.png": "/static/media/backImage_1.c66e032ebf18b952f4d0.png",
+    "static/media/backImage_2.png": "/static/media/backImage_2.8c50b113d3eb57e7f27f.png",
+    "static/media/focusImage_2.png": "/static/media/focusImage_2.e7ef1335e1bbfad700eb.png",
+    "static/media/focusImage_4.png": "/static/media/focusImage_4.ef6bf556c80f8fcac963.png",
+    "static/media/project-card-back.webp": "/static/media/project-card-back.c201722cf758b048ccdf.webp",
+    "static/media/sass.png": "/static/media/sass.01d08dfc43d7db5ab30a.png",
+    "static/media/mongodb.png": "/static/media/mongodb.dce2c8b358225768c722.png",
+    "static/media/html.png": "/static/media/html.d8105c2c7d96e99e1c76.png",
+    "static/media/focusImage_6.png": "/static/media/focusImage_6.b33c1ecec2cf73e5797f.png",
+    "static/media/postgresql.png": "/static/media/postgresql.3b68a3e0c57f22448463.png",
+    "static/media/focusImage_3.png": "/static/media/focusImage_3.fca7d6cf468f9c8df341.png",
+    "static/media/express.png": "/static/media/express.2b7fe03ca843c860b657.png",
+    "static/media/python.png": "/static/media/python.3e89c3c0331cc7b3f8ca.png",
+    "static/media/react.png": "/static/media/react.13fffd1283494dba8121.png",
+    "static/media/avatar-body.png": "/static/media/avatar-body.0c51c29e2673a7ddf729.png",
+    "static/media/css.png": "/static/media/css.26f43e2b7f6e56987569.png",
+    "static/media/bulma.png": "/static/media/bulma.9bedfa85d12bd14dd04b.png",
+    "static/media/javascript.png": "/static/media/javascript.5dfc2de63ab4a893e746.png",
+    "static/media/django.png": "/static/media/django.2fe3590b178522d25312.png",
+    "static/media/arrow1.png": "/static/media/arrow1.bf89fa16f072b3932739.png",
+    "static/media/arrow2.png": "/static/media/arrow2.75e9f666fcf3d7e2601e.png",
+    "static/media/github.png": "/static/media/github.ae2245b93f5517f69883.png",
+    "static/media/avatar-arm.png": "/static/media/avatar-arm.38f6ed6cb71b3a6ec1a0.png",
+    "index.html": "/index.html",
+    "main.7b897a19.css.map": "/static/css/main.7b897a19.css.map",
+    "main.e0428d24.js.map": "/static/js/main.e0428d24.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b897a19.css",
+    "static/js/main.e0428d24.js"
+  ]
+}

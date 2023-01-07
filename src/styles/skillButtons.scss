@@ -1,0 +1,427 @@
+$size: 4.5vw;
+
+
+.ball-container-sphere {
+
+ height: 100px;
+ display: inline-block;
+  // width: 3vw *2;
+  background-color: transparent;
+  box-shadow:  100px 100px  #1982A1;
+    // box-shadow: inset 50px 100px 100px  black;
+  border: 2px solid black;
+}
+
+
+.skills-button-wrapper {
+  // height: 170px;
+  // padding-top: 60px;
+  // background-color: green;
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.skill-button-container {
+  overflow: visible;
+  text-align: center;
+  display: flex;
+  margin:0;
+flex-direction: column;
+}
+
+
+.skill-button {
+     will-change: transform;
+  overflow: visible;
+  cursor: pointer; 
+  min-height: 50px;
+  min-width: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  height: $size;
+  width: $size;
+  margin: 0px 1.2vw 15px 1.2vw;
+  text-align: center;
+  border-radius:500px;
+	background-repeat:no-repeat;
+  background-position: center;
+	background-size:cover;
+  box-shadow: inset -10px -6px 10px rgba(0,0,0,.3);
+  border: 1.5px solid black;
+   position: relative;
+  z-index: 6;
+}
+
+.skill-button:active {
+  scale: .95;
+  filter: brightness(.9);
+}
+
+
+.un-selected {
+  overflow: visible;
+ animation: unselected  .45s ease-in-out  1 normal forwards;
+}
+
+.skill-is-selected {
+ animation: skill-is-selected  .2s ease-in-out 1 normal forwards;
+}
+
+.skill-is-not-selected {
+ animation: skill-is-not-selected  .2s ease 1 normal forwards;
+ 
+}
+
+.not-selected {
+ max-height: 50px;
+  max-width: 50px;
+   will-change: filter; 
+  text-align: center;
+	background-repeat:no-repeat;
+  background-position: center;
+	background-size:cover;
+  border: none;
+  z-index: 2;
+ animation: notselected  .45s ease-in-out  1 normal forwards;
+}
+
+
+
+#ReactJS {
+  background-image: url(../assets/skills/react.png);
+}
+#JavaScript {
+  background-image: url(../assets/skills/javascript.png);
+}
+#SASS {
+  background-image: url(../assets/skills/sass.png);
+}
+#HTML5 {
+  background-image: url(../assets/skills/html.png);
+}
+#Python {
+  background-image: url(../assets/skills/python.png);
+}
+#PostgreSQL {
+  background-image: url(../assets/skills/postgresql.png);
+}
+#Django {
+  background-image: url(../assets/skills/django.png);
+ background-size: 102%;
+}
+#Bulma {
+   background-image: url(../assets/skills/bulma.png);
+}
+#Express {
+     background-image: url(../assets/skills/express.png);
+}
+#MongoDB {
+     background-image: url(../assets/skills/mongodb.png);
+    //  position: relative;;
+    //  z-index: -2;
+}
+#CSS {
+     background-image: url(../assets/skills/css.png);
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* Poké Styles */
+.pokeball {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border: 11px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px 10px 0 10px #ccc;
+  animation: fall .25s ease-in-out,
+             shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+}
+
+.pokeball__button {
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 60px;
+  background: #7f8c8d;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 10px black;
+  animation: blink .5s alternate 7;
+}
+/* Animation */
+@keyframes blink {
+  from { background: #eee;}
+  to { background: #e74c3c; }
+}
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-10px, 0) rotate(-20deg); }
+  30% { transform: translate(10px, 0) rotate(20deg); }
+  50% { transform: translate(-10px, 0) rotate(-10deg); }
+  60% { transform: translate(10px, 0) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+@keyframes fall {
+  0% { top: -200px }
+  60% { top: 0 }
+  80% { top: -20px }
+  100% { top: 0 }
+}
+
+
+@keyframes skill-is-selected {
+    0% {box-shadow:   0px 0px 0px 0px rgb(255, 255, 255)}
+  100% {box-shadow:   0px 0px 10px 8px rgb(255, 255, 255)}
+}
+
+@keyframes skill-is-not-selected {
+    0% {box-shadow:   0px 0px 10px 8px rgb(255, 255, 255)}
+    
+    95% {box-shadow:   0px 0px 5px 0px rgb(255, 255, 255);
+    }
+99% {box-shadow:   0px 0px .1px 0px rgb(255, 255, 255)}
+
+    100% {
+      box-shadow:   0px 0px 0px 0px rgb(255, 255, 255);
+      transform: scale(1);
+    }
+}
+// @-webkit-keyframes notselected {
+//   0% {
+//     border: 1.5px solid black;
+//     filter: brightness(85%) blur(0px)
+//   }
+//   20%{ 
+//      filter: brightness(85%) blur(.7px);
+//       transform: scale(1);
+//   }
+//    40% {
+//   filter: brightness(85%) blur(2px);
+//    transform: scale(0.8);
+// }
+// 50% {
+//    transform: scale(0.6);
+// }
+//    55% {
+//      transform: scale(0.7);
+//    }
+//    70% {
+//      transform: scale(0.95);
+//    }
+//    85% {
+//      transform: scale(1.1);
+//    }
+//    100% {
+//      transform: scale(1em);
+//     border-top: 25px solid red;
+//      border-bottom: 23px solid white;
+//      position: relative;
+//       filter: brightness(100%) blur(4px)  ;
+//         overflow: visible;
+//   }
+  
+// }
+@keyframes notselected {
+  0% {
+    border: 1.5px solid black;
+    filter: brightness(85%) blur(0px)
+  }
+  20%{ 
+     filter: brightness(85%) blur(.7px);
+      transform: scale(1);
+  }
+   40% {
+  filter: brightness(85%) blur(2px);
+   transform: scale(0.8);
+}
+50% {
+   transform: scale(0.6);
+}
+   55% {
+     transform: scale(0.7);
+   }
+   70% {
+     transform: scale(0.95);
+   }
+   85% {
+     transform: scale(1.1);
+   }
+   100% {
+     transform: scale(1);
+    border-top: 25px solid red;
+     border-bottom: 23px solid white;
+     position: relative;
+      filter: brightness(100%) blur(4px)  ;
+  }
+  
+}
+@keyframes unselected {
+   0% {
+    border-top: 25px solid red;
+     border-bottom: 24px solid white;
+    //  position: relative;
+      filter: brightness(100%) blur(4px)  grayscale(.2);
+  }
+  15%{ 
+     
+      transform: scale(1);
+  }
+   40% {
+  filter: brightness(85%) blur(2px);
+  transform: scale(0.8)
+}
+50% {
+   transform: scale(0.6);
+}
+ 55% {
+     transform: scale(0.65);
+   }
+   60%{ 
+     filter: brightness(85%) blur(.7px)
+  }
+   70% {
+     transform: scale(0.95);
+   }
+   80% {
+     transform: scale(1.15);
+   }
+     85% {
+     transform: scale(1.1);
+       filter: brightness(95%) blur(.3px)
+   }
+  100% {
+      border: 1.5px solid black;
+    filter: brightness(100%) blur(0px);
+      transform: scale(1);
+     
+         overflow: visible;
+  }
+}
+
+
+
+.ball-line-container {
+ display: none;
+    overflow: visible;
+  flex-direction: row;;
+  //  animation: linewrap2  1s ease  1 normal forwards;
+}
+
+.ball-line-1 {
+ background-color: black;
+  height: 4px;
+      // overflow: visible;
+ animation: linewrap  .6s ease  1 normal forwards;
+}
+.ball-circle{
+  // height: 24px;
+ animation: ball  .45s ease .28s 1 normal forwards;
+//  position: relative;
+    // overflow: visible;
+ z-index: 1;
+
+}
+
+
+.ball-line-2 {
+  // position: relative;
+      // overflow: visible;
+ background-color: black;
+  height: 4px;
+ animation: linewrap  .6s ease  1 normal forwards;
+}
+
+@keyframes ball {
+  20% {
+       width: 0px;
+   height: 0px;
+ background-color: white;
+ filter: opacity(40%);
+ border: 15px black;
+     border-radius: 50%;
+  margin: -8px;
+  }
+
+  31% {
+   width: $size;
+   height: 24px;
+filter: opacity(40%);
+ background-color: white;
+ border:7px black;
+     border-radius: 50%;
+  margin: -8px;
+  }
+  60%{
+    filter: opacity(40%);
+  }
+   100% {
+   width: $size;
+   height: 24px;
+   filter: opacity(100%);
+ background-color: white;
+ border: 3px black solid;
+     border-radius: 50%;
+  margin: -8px;
+  }
+  
+  
+}
+
+@keyframes linewrap {
+  0% {
+    width: 0px;
+    filter: blur(100%);
+  }
+   58% {
+    width: 0px;
+    display: 100%;
+  
+  }
+  
+   59% {
+    width:  $size;
+    display: 100%;
+  
+  }
+60% {
+  display: flex;
+    width: $size
+  }
+  100% {
+    width:  $size;
+    display: flex;
+  }
+  
+}
+
+@keyframes linewrap2 {
+  0% {
+    width: 0px
+  }
+  59% {
+    width: 0px
+  }
+   60% {
+    width: $size
+  }
+  100% {
+    width: $size
+  }
+  
+}
+
+
