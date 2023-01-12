@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.7b897a19.css",
-    "main.js": "/static/js/main.e0428d24.js",
+    "main.css": "/static/css/main.bd2bd1f2.css",
+    "main.js": "/static/js/main.1ca39794.js",
     "static/media/focusImage_5.png": "/static/media/focusImage_5.3612293fdc082ca5b09c.png",
     "static/media/focusImage_1.png": "/static/media/focusImage_1.1857a8fb1f3046ae6a68.png",
     "static/media/focusImage_8.png": "/static/media/focusImage_8.7a70ea4cf08d10fee760.png",
@@ -19,6 +19,7 @@
     "static/media/express.png": "/static/media/express.2b7fe03ca843c860b657.png",
     "static/media/python.png": "/static/media/python.3e89c3c0331cc7b3f8ca.png",
     "static/media/react.png": "/static/media/react.13fffd1283494dba8121.png",
+    "static/media/bridgelogo.png": "/static/media/bridgelogo.7148fc830f4d08a4f9ef.png",
     "static/media/avatar-body.png": "/static/media/avatar-body.0c51c29e2673a7ddf729.png",
     "static/media/css.png": "/static/media/css.26f43e2b7f6e56987569.png",
     "static/media/bulma.png": "/static/media/bulma.9bedfa85d12bd14dd04b.png",
@@ -29,11 +30,11 @@
     "static/media/github.png": "/static/media/github.ae2245b93f5517f69883.png",
     "static/media/avatar-arm.png": "/static/media/avatar-arm.38f6ed6cb71b3a6ec1a0.png",
     "index.html": "/index.html",
-    "main.7b897a19.css.map": "/static/css/main.7b897a19.css.map",
-    "main.e0428d24.js.map": "/static/js/main.e0428d24.js.map"
+    "main.bd2bd1f2.css.map": "/static/css/main.bd2bd1f2.css.map",
+    "main.1ca39794.js.map": "/static/js/main.1ca39794.js.map"
   },
   "entrypoints": [
-    "static/css/main.7b897a19.css",
-    "static/js/main.e0428d24.js"
+    "static/css/main.bd2bd1f2.css",
+    "static/js/main.1ca39794.js"
   ]
 }

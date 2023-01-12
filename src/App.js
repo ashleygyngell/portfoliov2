@@ -10,6 +10,7 @@ import ProjectsAsCards from './components/ProjectsAsCards';
 import Footer from './components/Footer';
 import Experience from './components/Experience';
 import Interests from './components/Interests';
+// import SkillsAsText from './components/SkillsAsText';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useRef } from 'react';
 
@@ -43,6 +44,7 @@ function App() {
         <About />
         {/* <Skills /> */}
         <ProjectsAsCards />
+        {/* <SkillsAsText /> */}
         {/* <Projects /> */}
         <Experience />
         <Interests />

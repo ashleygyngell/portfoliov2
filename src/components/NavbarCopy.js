@@ -1,6 +1,25 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 
 function Navbar() {
+  useEffect(() => {
+    const burger = document.querySelector('.burger');
+    const navbar = document.querySelector('.navbar');
+    const navLink = document.querySelectorAll('.nav-link');
+
+    burger.addEventListener('click', () => {
+      navbar.classList.toggle('nav-open');
+      burger.classList.toggle('burger-open');
+      navLink.forEach((link) => {
+        link.classList.toggle('nav-link-open');
+      });
+    });
+  });
+
+  function burgerClose() {
+    document.querySelector('.navbar').classList.toggle('nav-open');
+    document.querySelector('.burger').classList.toggle('burger-open');
+  }
+
   return (
     <>
       <div data-scroll-section>
@@ -48,6 +67,32 @@ function Navbar() {
                 </div>
               </li>
             </ul>
+            <div className="burger">
+              <i className="fas fa-bars fa-2x"></i>
+            </div>
+
+            <nav className="navbar">
+              <ul className="nav-links">
+                <li className="nav-link" onClick={burgerClose}>
+                  <a href="#about">About</a>
+                </li>
+                <li className="nav-link" onClick={burgerClose}>
+                  <a href="#projects">Projects</a>
+                </li>
+                <li className="nav-link" onClick={burgerClose}>
+                  <a href="#skills">Skills</a>
+                </li>
+                <li className="nav-link">
+                  <a href="#experience">Experience</a>
+                </li>
+                <li className="nav-link">
+                  <a href="#interests">Interests</a>
+                </li>
+                <li className="nav-link">
+                  <a href="#contact">Contact</a>
+                </li>
+              </ul>
+            </nav>
           </section>
         }
       </div>

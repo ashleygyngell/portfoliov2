@@ -1,4 +1,5 @@
 import React from 'react';
+import bridgeLogo from '../assets/images/bridgelogo.png';
 
 function Experience() {
   return (
@@ -12,7 +13,25 @@ function Experience() {
 
             <br />
             <div className="experience-text">
-              <div className="generalassembly">
+              <div className="bridge-family" id="experience-section">
+                <div className="bridge-family-mediation">
+                  <img
+                    id="experience-logo"
+                    src={bridgeLogo}
+                    alt="Bridge Family Mediation Logo"
+                  />
+                  <h2>Bridge Family Mediation</h2>
+                </div>
+                <h4>Jun '22 - Nov '22</h4>
+                <p>Freelance web developer for a divorce mediation company.</p>
+                <p>
+                  Designed using with <strong>Figma</strong> and built using{' '}
+                  <strong>ReactJS</strong>
+                </p>
+
+                <p>Involved weekly zoom meetings and regular emails.</p>
+              </div>
+              <div className="generalassembly" id="experience-section">
                 <div className="ga-header">
                   <img
                     id="experience-logo"
@@ -23,29 +42,30 @@ function Experience() {
                 </div>
                 <h4>Feb '22 - May '22</h4>
                 <p>
-                  12 Week, <strong>(Full Time)</strong> Software Engineering
+                  12 Week <strong>(Full Time)</strong> Software Engineering
                   Bootcamp.
                 </p>
                 <p>
-                  Furthered my programming knowledge, especially with
-                  <strong> JavaScript, React.js,</strong>&amp; external
+                  Developed my programming knowledge, especially
+                  <strong> React.JS</strong> &amp; building{' '}
                   <strong> APIs</strong>.
                 </p>
 
                 <p>
-                  Modeled &amp; Stored data in<strong> SQL</strong> &amp;{' '}
+                  Modeled &amp; stored data in<strong> SQL</strong> &amp;{' '}
                   <strong>noSQL</strong> databases.
                 </p>
 
-                <p>Four full-stack apps built individually &amp; paired.</p>
+                <p>
+                  Built four, full-stack apps both individually &amp; in groups.
+                </p>
 
                 <p>
-                  Daily stand-ups, online lessons, labs, paired-coding &amp;
-                  daily homeworks
+                  Daily stand-ups, homeworks &amp; paired-coding challanges.
                 </p>
               </div>
 
-              <div className="socialfiltar">
+              <div className="socialfiltar" id="experience-section">
                 <img
                   id="experience-logo"
                   src="https://res.cloudinary.com/dj7e2jadx/image/upload/v1653512101/socialfiiltar-logo.png"
@@ -58,30 +78,9 @@ function Experience() {
                   Created an augemented reality company utilising Meta&apos;s
                   SparkAR studio.
                 </p>
-                <p>Delivered digital content for businesses during lockdown.</p>
-              </div>
-
-              <div className="actor">
-                <img
-                  id="experience-logo"
-                  src="https://res.cloudinary.com/dj7e2jadx/image/upload/v1653514333/bbc-logo.png"
-                  alt="bbc-logo"
-                />
-                <h2>Actor</h2>
-                <h4>Jun '16 - Mar '20</h4>
-
                 <p>
-                  Work includes: BBC&apos;s War &amp; Peace, Mastercard, Orange,
-                  Mars, Arts Theatre, Arcola Theatre.
-                </p>
-                <p>
-                  Developed my creative &amp; empathy skills with a capacity to
-                  engage &amp; connect in front of a live audience.
-                </p>
-                <p>
-                  Crafted my ability to take direction &amp; deliver content
-                  under the extreme pressure of big studio sets &amp; time
-                  sensitive operations.
+                  Delivered digital content for businesses during the covid
+                  lockdown.
                 </p>
               </div>
             </div>

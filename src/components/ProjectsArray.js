@@ -1,7 +1,7 @@
 import focusImage1 from '../assets/images/focusImage_1.png';
 import focusImage2 from '../assets/images/focusImage_2.png';
 import focusImage3 from '../assets/images/focusImage_3.png';
-import focusImage4 from '../assets/images/focusImage_4.png';
+import focusImage4 from '../assets/images/focusImage_9.png';
 import focusImage5 from '../assets/images/focusImage_5.png';
 import focusImage6 from '../assets/images/focusImage_6.png';
 import focusImage7 from '../assets/images/focusImage_8.png';
@@ -65,15 +65,14 @@ export const projects = {
           Designed in <strong>Figma</strong> and built in
           <strong> ReactJS</strong>, with a <strong>Bulma CSS</strong>{' '}
           framework. Hosted on <strong>Netlify</strong> for client demonstration
-          before deployment to Hostinger. Involved weekly zoom meetings with the
-          client to develop and build components on request.
+          before deployment to Hostinger.
         </p>
       ),
       skills: ['JavaScript ', 'ReactJS ', 'SASS ', 'HTML5 '],
       allSkills: ['JavaScript', 'ReactJS', 'SASS', 'HTML5', 'Bulma'],
       skillsImages: [ReactJS, SCSS, JavaScript, HTML5],
       hoursTaken: '50+ hrs',
-      timeframeAndType: `Jun '22 - Dec '22 | Freelance Work `,
+      timeframeAndType: `Jun '22 - Nov '22 | Freelance Work `,
       yearCreated: '2022',
       backgroundImage: backImage2,
       focusImage: focusImage1
@@ -93,8 +92,7 @@ export const projects = {
           <strong>Python </strong>
           backend, using a <strong>Django</strong> & an{' '}
           <strong>PostgreSQL</strong> database. Users are able to create
-          accouts, send/recieve messages and join chatrooms. Design takes
-          inspiration from iMessage, with a focus on profile images.
+          accouts, send/recieve messages and join chatrooms.
         </p>
       ),
       skills: ['Python ', 'PostgreSQL ', 'Django ', 'ReactJS'],
@@ -127,9 +125,8 @@ export const projects = {
         'Consumes an external API from Genius.com, demanding a wealth of string manipulation & automation.',
       breakdown: (
         <p className="e6_48b">
-          'A spin-off of the viral Wordle game, rooted in{' '}
-          <strong>Python</strong>, <strong>Django</strong> and a{' '}
-          <strong>PostgreSQL </strong>
+          A spin-off of the viral Wordle game, rooted in <strong>Python</strong>
+          , <strong>Django</strong> and a <strong>PostgreSQL </strong>
           database. Lyricle features register/login functionality where users
           can create and join leagues.
         </p>
@@ -203,8 +200,7 @@ export const projects = {
         <p className="e6_48b">
           A Dynamic web application that provides accurate information about the
           top 100 cryptocurrencies using a <strong>REST API</strong>. Built as
-          part of a 2 day hackathon Project at General Assembly's Bootcamp, it
-          utilises the basics of a <strong>Bulma CSS</strong> framework.
+          part of a 2 day hackathon Project at General Assembly's Bootcamp.
         </p>
       ),
       skills: ['JavaScript ', 'ReactJS ', 'Bulma ', 'HTML5'],
@@ -223,7 +219,7 @@ export const projects = {
       githubURL: 'https://github.com/ashleygyngell/SEI-PER-MARIO-MAN',
       websiteURL: 'https://ashleygyngell.github.io/SEI-PER-MARIO-MAN/',
       highlightTitle: 'Dark Mode',
-      highlight: `Complete the first level by collecting two stars and torch. This unlocks 'World 1-2' which is played with the lights out!`,
+      highlight: `Complete the first level by collecting two stars and torch. This unlocks 'World 1-2'. Lights out!`,
       breakdown: (
         <p className="e6_48b">
           A grid based <strong>JavaScript</strong> game that combines two of my

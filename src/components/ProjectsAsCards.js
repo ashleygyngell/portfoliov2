@@ -19,9 +19,10 @@ let filteredProjects = [];
 
 function ProjectsAsCards() {
   useEffect(() => {
-    let hueGradient = 0;
+    let hueGradient = 100;
+
     document.querySelectorAll('.card').forEach((el) => {
-      hueGradient += 0;
+      hueGradient += 45;
       let bounds;
       function rotateToMouse(e) {
         const mouseX = e.clientX;
@@ -32,28 +33,32 @@ function ProjectsAsCards() {
           x: leftX - bounds.width / 2,
           y: topY - bounds.height / 2
         };
+
         const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
 
         el.style.transform = `
-      scale3d(1.18, 1.18, 1.18)
+      scale3d(1.12, 1.12, 1.12)
       rotate3d(
         ${center.y / 100},
         ${-center.x / 100},
         0,
-        ${Math.log(distance) * 2.5}deg
+        ${Math.log(distance) * 2}deg
       )
     `;
 
         el.querySelector('.glow').style.backgroundImage = `
-      radial-gradient(
-        circle at
-        ${center.x * 2 + bounds.width / 2}px
-        ${center.y * 2 + bounds.height / 2}px,
-        #ffffff85,
-        #0000000f
-      )
-    `;
+          radial-gradient(
+            circle at
+            ${center.x * 2 + bounds.width / 2}px
+            ${center.y * 2 + bounds.height / 2}px,
+            #ffffff85,
+            #0000000f
+          )
+        `;
       }
+
+      console.log('here', el);
+
       el.addEventListener('mouseenter', () => {
         bounds = el.getBoundingClientRect();
         document.addEventListener('mousemove', rotateToMouse);
@@ -66,68 +71,149 @@ function ProjectsAsCards() {
         el.style.background = '';
       });
 
-      el.querySelector('.e6_40').style.filter = `hue-rotate(${hueGradient}deg)`;
+      // first, check if the browser supports the Device Orientation API
+      if ('DeviceOrientationEvent' in window) {
+        // create a function to handle the device orientation event
+        function handleOrientation(event) {
+          const alpha = event.alpha;
+          const beta = event.beta;
+          const gamma = event.gamma;
 
-      // if (el.classList.contains('is-flipped')) {
-      //   el.removeEventListener('mousemove', rotateToMouse);
-      // }
-    });
+          // Use alpha, beta, and gamma to calculate rotation of the element
+          // Note: you may need to do some trigonometry calculations to map
+          // the values of alpha, beta, and gamma to rotation values
 
-    let filterArray = [];
-    let blurArray = [];
-    document.querySelectorAll('.skill-button').forEach((e) => {
-      e.addEventListener('click', () => {
-        if (!filterArray.includes(e.id)) {
-          e.classList.add('skill-is-selected');
-          e.classList.remove('skill-is-not-selected');
-          filterArray.push(e.id);
-        } else if (filterArray.includes(e.id)) {
-          e.classList.remove('skill-is-selected');
-          e.classList.add('skill-is-not-selected');
-          filterArray.splice(filterArray.indexOf(e.id), 1);
+          el.style.transform = `rotate3d(${beta}, ${gamma}, ${alpha}, deg)`;
         }
-        document.querySelectorAll('.item').forEach((e) => {
-          const cardToTarget = e.childNodes[1].firstChild.firstChild;
-          const cardSkillsToTarget = e.childNodes[1].id.split(',');
-          filterArray.every((r) => cardSkillsToTarget.includes(r));
-          if (filterArray.every((r) => cardSkillsToTarget.includes(r))) {
-            blurArray = [...new Set([...blurArray, ...cardSkillsToTarget])];
-            cardToTarget.classList.remove('is-flipped');
-            cardToTarget.classList.add('un-flipped');
-          } else {
-            cardToTarget.classList.add('is-flipped');
-            cardToTarget.classList.remove('un-flipped');
-            filteredProjects.push(e);
-          }
-        });
-        let i = 0;
-        filterSkills.forEach((e) => {
-          const skillToTarget = document.querySelector(`#${e}`);
-          const skillPokeballCSS = skillToTarget.childNodes[0].style;
-          if (blurArray.includes(filterSkills[i])) {
-            skillToTarget.classList.remove('not-selected');
-            skillToTarget.classList.add('un-selected');
-            skillPokeballCSS.display = 'none';
-            skillToTarget.disabled = '';
-          } else {
-            skillToTarget.classList.add('not-selected');
-            skillToTarget.classList.remove('un-selected');
-            skillToTarget.disabled = 'true';
-            skillPokeballCSS.display = 'flex';
-          }
-          i++;
-        });
-        blurArray = [];
-        filteredProjects = [];
+
+        // add an event listener to listen for deviceorientation events
+        window.addEventListener('deviceorientation', handleOrientation);
+      } else {
+        console.log('Device Orientation API not supported');
+      }
+
+      el.querySelector('.e6_40').style.filter = `hue-rotate(${hueGradient}deg)`;
+    });
+    const filterArray = [];
+    const blurArray = [];
+
+    const skillButtons = document.querySelectorAll('.skill-button');
+    skillButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        toggleSelected(button);
+        filterCards();
+        toggleDisabled();
+        moveToNextAvailable();
+        blurArray.length = 0;
+        filteredProjects.length = 0;
       });
     });
+
+    function toggleSelected(element) {
+      if (!filterArray.includes(element.id)) {
+        filterArray.push(element.id);
+        element.classList.add('skill-is-selected');
+        element.classList.remove('skill-is-not-selected');
+      } else {
+        filterArray.splice(filterArray.indexOf(element.id), 1);
+        element.classList.remove('skill-is-selected');
+        element.classList.add('skill-is-not-selected');
+      }
+    }
+
+    function filterCards() {
+      const items = document.querySelectorAll('.item');
+
+      items.forEach((item) => {
+        const cardSkills = item.childNodes[1].id.split(',');
+        const card = item.childNodes[1].firstChild.firstChild;
+        if (filterArray.every((filter) => cardSkills.includes(filter))) {
+          blurArray.push(...cardSkills);
+          card.classList.remove('is-flipped');
+          card.classList.add('un-flipped');
+        } else {
+          card.classList.add('is-flipped');
+          card.classList.remove('un-flipped');
+          filteredProjects.push(item);
+        }
+      });
+    }
+
+    function moveToNextAvailable() {
+      if (
+        document
+          .querySelector('.track .item:nth-of-type(4)')
+          .childNodes[1].firstChild.firstChild.classList.contains('un-flipped')
+      ) {
+        console.log(
+          'current is unflipped',
+          document.querySelector('.track .item:nth-of-type(4)')
+        );
+      } else {
+        console.log('current is flipped');
+        while (
+          document
+            .querySelector('.track .item:nth-of-type(3)')
+            .childNodes[1].firstChild.firstChild.classList.contains(
+              'is-flipped'
+            )
+        ) {
+          console.log('thisisblank');
+
+          track.prepend(track.querySelector('.item:last-of-type'));
+        }
+        track.prepend(track.querySelector('.item:last-of-type'));
+      }
+    }
+
     const track = document.querySelector('.track');
+
     document.querySelector('.prev').addEventListener('click', (e) => {
+      while (
+        document
+          .querySelector('.track .item:nth-of-type(5)')
+          .childNodes[1].firstChild.firstChild.classList.contains('is-flipped')
+      ) {
+        console.log('thisisblank');
+        track.append(track.querySelector('.item:first-of-type'));
+      }
       track.append(track.querySelector('.item:first-of-type'));
+      console.log(document.querySelector('.track .item:nth-of-type(4)'));
     });
+
     document.querySelector('.next').addEventListener('click', (e) => {
+      while (
+        document
+          .querySelector('.track .item:nth-of-type(3)')
+          .childNodes[1].firstChild.firstChild.classList.contains('is-flipped')
+      ) {
+        console.log('thisisblank');
+        track.prepend(track.querySelector('.item:last-of-type'));
+      }
       track.prepend(track.querySelector('.item:last-of-type'));
     });
+
+    function toggleDisabled() {
+      filterSkills.forEach((skill, index) => {
+        const skillEl = document.querySelector(`#${skill}`);
+        const pokeball = skillEl.childNodes[0].style;
+        if (blurArray.includes(filterSkills[index])) {
+          skillEl.classList.remove('not-selected');
+          skillEl.classList.add('un-selected');
+          pokeball.display = 'none';
+          skillEl.disabled = '';
+          skillEl.style.cursor = 'pointer';
+        } else {
+          skillEl.classList.add('not-selected');
+          skillEl.classList.remove('un-selected');
+          skillEl.classList.remove('skill-is-not-selected');
+          skillEl.disabled = 'true';
+          pokeball.display = 'flex';
+          skillEl.style.cursor = 'unset';
+        }
+      });
+    }
+
     let targetProjects = document.querySelector('.projects');
 
     if (
@@ -160,7 +246,7 @@ function ProjectsAsCards() {
                       >
                         <div className="scene scene--cardF ">
                           <div
-                            className="cardF card card__shine  "
+                            className="cardF card card__shine un-flipped "
                             data-rarity=""
                           >
                             <div className="cardF__face cardF__face--front  ">
@@ -182,7 +268,10 @@ function ProjectsAsCards() {
                                       style={{
                                         backgroundImage: `url(${projects.data[index].focusImage})`
                                       }}
-                                    ></div>
+                                    >
+                                      {' '}
+                                      <div className="glow2" />
+                                    </div>
                                   </a>
                                   <div className="e6_43"></div>
                                   <div className="e6_44"></div>
@@ -232,11 +321,11 @@ function ProjectsAsCards() {
                                 >
                                   <div id="github-1" className="github-1">
                                     <div className="github-2">
-                                      {/* <div className="loader">
+                                      <div className="loader">
                                         <div class="loader-6 center">
                                           <span></span>
                                         </div>
-                                      </div> */}
+                                      </div>
                                     </div>
 
                                     <div className="github-3"></div>
@@ -279,8 +368,8 @@ function ProjectsAsCards() {
                                   <div className="html5-2"></div>
                                 </div>
                                 <div className="blackdot-1"></div>
+                                <div className="glow" />
                               </div>
-                              <div className="glow" />
                             </div>
                             <div className="cardF__face cardF__face--back"></div>
                           </div>
@@ -296,7 +385,8 @@ function ProjectsAsCards() {
           </section>
         }
       </div>
-      <div data-scroll-section>
+
+      <div>
         {
           <section className="skills" id="skills">
             <div className="scroll-button-wrapper">

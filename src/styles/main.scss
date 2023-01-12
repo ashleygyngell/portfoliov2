@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   font-family: 'Gill Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;    
+  -webkit-font-smoothing: antialiased;   
+   
 }
 
 body {
@@ -11,7 +12,9 @@ body {
   padding: 0px 20px 0px;
   // background-color:whitesmoke;e
   color: black;
-  height: 100vh
+  height: 100vh;
+   overflow-x: hidden; 
+   
 }
 
 body a {
@@ -133,9 +136,8 @@ body h3 {
 // PROJECT TEXT 
 
 .projects {
-  height: 460px;
+  height: 500px;
 padding-top: 110px;
-
 transform: preserve-3d;
 }
 
@@ -293,7 +295,27 @@ html.has-scroll-dragging {
 
 
 //Navbar
+
+@media screen and (max-width: 599px) {
+  .burger {
+    display: flex
+  }
+  .navbar-items {
+    display: none
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .burger {
+    display: none
+  }
+  .navbar-items {
+    display: flex
+  }
+}
+
 .navbar-wrapper {
+
   // background-color: lightgrey;
   margin-top: -10px;
     width: 100%;
@@ -307,7 +329,7 @@ html.has-scroll-dragging {
 
 .navbar-items {
   
-  display: flex;
+  // display: flex;
   justify-content: space-around;
   align-items: center;
   list-style-type: none;
@@ -321,7 +343,7 @@ html.has-scroll-dragging {
   letter-spacing: 0.15em;
 
   display: inline-block;
-  padding: 15px 20px;
+  padding: 15px 0px;
   position: relative;
 }}
 
@@ -348,6 +370,103 @@ a:hover:after {
     margin-top: 40px;
   }
 }
+
+$cyan-color: #23f0ff;
+$dark-color: #2a3255;
+
+%transition{
+    opacity: 1;
+    transition: 0.3s ease-in all;
+}
+
+%opacity{
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+%hover{
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 0%;
+    background-color: $dark-color;
+    left: 0;
+    border-radius: 2px;
+    transition: 0.3s ease all;
+}
+
+%flex-stack{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.burger{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: $cyan-color;
+    cursor: pointer;
+ z-index: 7;
+    // display: flex;
+   
+    &.burger-open{
+        color: $dark-color;
+        
+    }
+}
+
+.navbar{
+    position: absolute;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $cyan-color;
+    clip-path: circle(0px at 0 0px);
+    transition: 0.5s ease all;
+    .nav-links{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        li{
+            list-style-type: none;
+            margin: 2rem 0;
+            
+            a{
+                text-decoration: none;
+                color: $dark-color;
+                font-size: 2em;
+                position: relative;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                &::before{
+                    @extend %hover;
+                    top: -2px;
+                }
+                &::after{
+                    @extend %hover;
+                    bottom: -5px;
+                }
+                &:hover::before{
+                    width: 100%;
+                }
+                &:hover::after{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &.nav-open{
+        display: block;
+        clip-path: circle(100%);
+    }
+}
+
 
 
 
@@ -381,6 +500,7 @@ a:hover:after {
 .hero-section h1 {
   font-weight:100;
       font-size: 8vw;
+      margin-top: -20px;
     }
 
 #ashley-gyngell-avatar {
@@ -419,6 +539,14 @@ top: .3vw
   text-align: center;
   font-size: 8vh;
 }
+
+.skills-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: wrap;
+}
+
 
 .skill:hover {
   
@@ -541,27 +669,35 @@ color: #0AD0B2;
 
 // About
 
-
-
-#about p { 
- text-align: center;
-  line-height: 1.6;
-  padding: 0px 15vw 15px 15vw;
-  margin-top: -20px;
-
+@media screen and (max-width: 600px) {
+  #about p { 
+  padding: 0px 8vw 15px 8vw;
+}
 }
 
+@media screen and (min-width: 601px) {
+  #about p { 
+  padding: 0px 15vw 15px 15vw;
+}
+}
+
+
+ #about p { 
+ text-align: center;
+  line-height: 1.6;
+  margin-top: -20px;
+ }
 
 
 // Interests
 
-.interests-text {
-  padding: 0 15vh;
-    display: grid;
-    justify-content: center;
-    gap: 8vh;
-    grid-template-columns: 20% 20% 20% 20%;
-    text-align: center;
+#interest-section {
+  padding: 10px 10px ;
+  //   display: grid;
+  //   justify-content: center;
+    // gap: 8vh;
+  //   grid-template-columns: 20% 20% 20% 20%;
+  //   text-align: center;
 }
 
 // Experience
@@ -590,42 +726,75 @@ color: #0AD0B2;
 
 .experience-wrapper{
   padding-top: 80px;
+  
+// text-align: center;
 }
 
-.experience-text {
-  padding: 0 7vh;
-  display: grid;
-  justify-content: center;
-  gap: 12vh;
-  grid-template-columns: 30% 30% 30%;
+
+@media screen and (max-width: 1000px) {
+  .experience-text, .interests-text {
+  padding: 0px 8vw 15px 8vw;
   text-align: center;
+  }
+  #experience-section #interest-section {
+width: 100%;
+  padding: 10px 5px
 }
+}
+
+@media screen and (min-width: 1001px) {
+  .experience-text, .interests-text {
+     padding: 10px 5px;
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  
+  }
+  #experience-section, #interest-section {
+padding: 10px 15px;
+width: 33%;
+  // padding: 0px 5px
+}
+
+}
+
+#experience-section {
+  padding-top: 10px;
+}
+
+// .experience-text {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   text-align: center;
+//   border: solid 2px red;
+// }
 
 
 
 .experience-text h2 {
-  white-space: nowrap;
-  padding-top: 2vh;
+  // white-space: nowrap;
   font-size: 1.6em;
   text-transform: uppercase;
 }
 
 
 .experience-text h4 {
-  padding-bottom: 5vh;
+  padding-bottom: 1.2vh;
   font-size: 1.2em;
   font-weight: 100;
   text-transform: uppercase;
 }
 
 .experience-wrapper p {
-  padding-bottom: 18px;
+  padding-bottom: 1em;
 }
 
 
 #experience-logo {
   height: 50px;
- 
+//  
 }
 
 

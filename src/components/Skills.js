@@ -1,18 +1,5 @@
 import React from 'react';
 
-// window.onload = function () {
-//   const skillsTransition = document.querySelector('#skills');
-//   skillsTransition.onmouseover = function (e) {
-//     document.body.style.background = '#0a0c64';
-//     document.body.style.color = 'green';
-//     document.body.style.transition = 'all 0.2s ease-in';
-//   };
-//   skillsTransition.onmouseout = function (e) {
-//     document.body.style.background = '#FFFFFF';
-//     document.body.style.color = '#000000';
-//     document.body.style.transition = 'all 0.2s ease-in';
-//   };
-// };
 function Skills() {
   return (
     <>

@@ -1,4 +1,55 @@
-$size: 4.5vw;
+$size: 6vw;
+
+
+
+button.prev  {
+  cursor: pointer;
+background-image: url(../assets/images/arrow1.png);
+height: 40px;
+width: 40px;
+margin: 0 15px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+border: none;
+background-color: transparent;
+transform: rotate(180deg);
+}
+
+button.prev:hover {
+transform: scale(1.2) rotate(180deg )
+}
+
+button.prev:active{
+background-image: url(../assets/images/arrow2.png);
+transform: scale(1.1) rotate(180deg ) 
+}
+
+
+
+button.next  {
+  cursor: pointer;
+background-image: url(../assets/images/arrow1.png);
+height: 40px;
+width: 40px;
+margin: 0 15px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+border: none;
+background-color: transparent;
+
+}
+
+button.next:hover {
+transform: scale(1.2)
+}
+
+button.next:active{
+background-image: url(../assets/images/arrow2.png);
+transform: scale(1.1) 
+}
+
 
 
 .ball-container-sphere {
@@ -21,30 +72,70 @@ $size: 4.5vw;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
+@media screen and (max-width: 480px) {
+  .skill-button-container {
+    scale: 0.8;
+    overflow: visible;
+  text-align: center;
+  display: flex;
+  // margin: 0px 1px;
+flex-direction: column;
+font-size: 1em;
+padding: 0 1px 2px;
+margin-top: -10px
+;
+  }
 
+.scroll-button-wrapper {
+    padding-bottom: 15px;
+    margin-top: -50px;
+  display: flex;
+flex-direction: row;
+justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+}
 
+  @media screen and (min-width: 481px) {
 .skill-button-container {
   overflow: visible;
   text-align: center;
   display: flex;
-  margin:0;
+  margin: 0px 2px;
 flex-direction: column;
+font-size: 1.2em;
+padding: 0 3px 20px
 }
+.scroll-button-wrapper {
+    padding-bottom: 15px;
+    padding-top: 2px;
+  display: flex;
+flex-direction: row;
+justify-content: center;
+  position: relative;
+  z-index: 1;
+}}
+
+
+
+
 
 
 .skill-button {
      will-change: transform;
   overflow: visible;
-  cursor: pointer; 
+  cursor: pointer; ;
   min-height: 50px;
   min-width: 50px;
   max-height: 50px;
   max-width: 50px;
   height: $size;
   width: $size;
-  margin: 0px 1.2vw 15px 1.2vw;
+  margin: 0px 1.2vw 12px 1.2vw;
   text-align: center;
   border-radius:500px;
 	background-repeat:no-repeat;
@@ -56,10 +147,12 @@ flex-direction: column;
   z-index: 6;
 }
 
-.skill-button:active {
-  scale: .95;
-  filter: brightness(.9);
-}
+
+
+// .skill-button:active {
+//   scale: .95;
+//   filter: brightness(.9);
+// }
 
 
 .un-selected {
@@ -135,52 +228,7 @@ flex-direction: column;
 }
 
 
-/* Poké Styles */
-.pokeball {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background: #fff;
-  border: 11px solid #000;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: inset -10px 10px 0 10px #ccc;
-  animation: fall .25s ease-in-out,
-             shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
-}
 
-.pokeball__button {
-  position: absolute;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  width: 60px;
-  height: 60px;
-  background: #7f8c8d;
-  border: 10px solid #fff;
-  border-radius: 50%;
-  z-index: 10;
-  box-shadow: 0 0 0 10px black;
-  animation: blink .5s alternate 7;
-}
-/* Animation */
-@keyframes blink {
-  from { background: #eee;}
-  to { background: #e74c3c; }
-}
-@keyframes shake {
-  0% { transform: translate(0, 0) rotate(0); }
-  20% { transform: translate(-10px, 0) rotate(-20deg); }
-  30% { transform: translate(10px, 0) rotate(20deg); }
-  50% { transform: translate(-10px, 0) rotate(-10deg); }
-  60% { transform: translate(10px, 0) rotate(10deg); }
-  100% { transform: translate(0, 0) rotate(0); }
-}
-@keyframes fall {
-  0% { top: -200px }
-  60% { top: 0 }
-  80% { top: -20px }
-  100% { top: 0 }
-}
 
 
 @keyframes skill-is-selected {
@@ -200,41 +248,7 @@ flex-direction: column;
       transform: scale(1);
     }
 }
-// @-webkit-keyframes notselected {
-//   0% {
-//     border: 1.5px solid black;
-//     filter: brightness(85%) blur(0px)
-//   }
-//   20%{ 
-//      filter: brightness(85%) blur(.7px);
-//       transform: scale(1);
-//   }
-//    40% {
-//   filter: brightness(85%) blur(2px);
-//    transform: scale(0.8);
-// }
-// 50% {
-//    transform: scale(0.6);
-// }
-//    55% {
-//      transform: scale(0.7);
-//    }
-//    70% {
-//      transform: scale(0.95);
-//    }
-//    85% {
-//      transform: scale(1.1);
-//    }
-//    100% {
-//      transform: scale(1em);
-//     border-top: 25px solid red;
-//      border-bottom: 23px solid white;
-//      position: relative;
-//       filter: brightness(100%) blur(4px)  ;
-//         overflow: visible;
-//   }
-  
-// }
+
 @keyframes notselected {
   0% {
     border: 1.5px solid black;
@@ -265,7 +279,7 @@ flex-direction: column;
     border-top: 25px solid red;
      border-bottom: 23px solid white;
      position: relative;
-      filter: brightness(100%) blur(4px)  ;
+      filter: brightness(100%) blur(3px) opacity(.6) ;
   }
   
 }
@@ -274,14 +288,14 @@ flex-direction: column;
     border-top: 25px solid red;
      border-bottom: 24px solid white;
     //  position: relative;
-      filter: brightness(100%) blur(4px)  grayscale(.2);
+      filter: brightness(100%) blur(3px)  opacity(.6) ;
   }
   15%{ 
      
       transform: scale(1);
   }
    40% {
-  filter: brightness(85%) blur(2px);
+  filter: brightness(85%) blur(2px)  opacity(.6) ;
   transform: scale(0.8)
 }
 50% {
@@ -423,5 +437,3 @@ filter: opacity(40%);
   }
   
 }
-
-
