@@ -113,6 +113,7 @@ z-index: -1;
 }
 
 .card:hover {
+  will-change: transform;  
   transition-duration: 200ms;
   box-shadow: 0 10px 10px 2px #00000044;
   
@@ -164,7 +165,6 @@ z-index: -1;
 .cardF {
    width: 346px;
   height: 480px;
-
   cursor: pointer;
   position: relative;
 }

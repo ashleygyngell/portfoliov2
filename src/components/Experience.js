@@ -25,7 +25,7 @@ function Experience() {
                 <h4>Jun '22 - Nov '22</h4>
                 <p>Freelance web developer for a divorce mediation company.</p>
                 <p>
-                  Designed using with <strong>Figma</strong> and built using{' '}
+                  Designed in <strong>Figma</strong> and built with{' '}
                   <strong>ReactJS</strong>
                 </p>
 

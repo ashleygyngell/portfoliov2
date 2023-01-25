@@ -62,7 +62,7 @@ export const projects = {
         'If screen width is within a certain width, display the appropriate layout.',
       breakdown: (
         <p className="e6_48b">
-          Designed in <strong>Figma</strong> and built in
+          Designed in <strong>Figma</strong> and built with
           <strong> ReactJS</strong>, with a <strong>Bulma CSS</strong>{' '}
           framework. Hosted on <strong>Netlify</strong> for client demonstration
           before deployment to Hostinger.
@@ -224,8 +224,8 @@ export const projects = {
         <p className="e6_48b">
           A grid based <strong>JavaScript</strong> game that combines two of my
           favorite childhood games; Super Mario Bros & Pac Man. Built as part of
-          General Assembly's Bootcamp, the aim of the project was to design the
-          logic for the 'ghost hunt'.
+          General Assembly's Bootcamp, with the aim of developing the 'ghost
+          hunt' logic.
         </p>
       ),
       skills: ['JavaScript ', 'HTM5 ', 'CSS ', 'Github'],
